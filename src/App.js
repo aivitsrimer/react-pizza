@@ -14,7 +14,6 @@ import { setPizzas } from './redux/actions/pizzas';
 //       setPizzas(data.pizzas);
 //     });
 //   }, []);
-
 //   return (
 //   );
 // }
@@ -22,7 +21,7 @@ import { setPizzas } from './redux/actions/pizzas';
 class App extends React.Component {
   componentDidMount() {
     axios.get('http://localhost:3000/db.json').then(({ data }) => {
-      this.props.dispatch(setPizzas(data.pizzas));
+      this.props.setPizzas(data.pizzas);
     });
   }
 
@@ -45,4 +44,14 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     setPizzas: (items) => dispatch(setPizzasAction(items)),
+//   };
+// }
+
+const mapDispatchToProps = {
+  setPizzas,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
