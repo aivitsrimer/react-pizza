@@ -1,6 +1,6 @@
 
 // Action Creator
-const setSortBy = (name) => ({
+export const setSortBy = (name) => ({
   type: 'SET_SORT_BY',
   payload: name,
 });
@@ -10,7 +10,7 @@ const setSortBy = (name) => ({
 //     type: 'SET_SORT_BY',
 // });
 
-const setCategory = (categoryIndex) => ({
+export const setCategory = (categoryIndex) => ({
   type: 'SET_CATEGORY',
   payload: categoryIndex,
 });
