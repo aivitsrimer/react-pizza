@@ -12,10 +12,11 @@ const SortPopup = React.memo(
     };
   
     const handleOutsideClick = (event) => {
-      if (!event.path.includes(sortRef.current)) {
+      const path = event.path || (event.composedPath && event.composedPath());
+      if (!path.includes(sortRef.current)) {
         setVisiblePopup(false);
       }
-    }
+    };
   
     const onSelectItem = (index) => {
       onClickSortType(index);
